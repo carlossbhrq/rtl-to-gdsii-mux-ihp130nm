@@ -27,7 +27,7 @@ create_delay_corner -name min_delay\
 
 create_constraint_mode -name sdc_cons\
    -sdc_files\
-    multiplexor_sdc.sdc 
+    ../physical_design/multiplexor_sdc.sdc
 
 create_analysis_view -name wc -constraint_mode sdc_cons -delay_corner max_delay
 create_analysis_view -name bc -constraint_mode sdc_cons -delay_corner min_delay
