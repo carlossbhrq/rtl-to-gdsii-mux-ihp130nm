@@ -125,8 +125,38 @@ $ exit
 
 
 ## 5. Digital Implementation 
+In this step, we will use the Innovus Implementation System to implement the floorplanning, placement, routing and others for this design. 
 
 ### 5.1 Importing the Design 
+
+### Procedures 
+```bash
+# Go to physical_design Directory
+$ cd IHP-Open-PDK/physical_design
+
+# Start the Innovus
+$ innovus -stylus
+
+# Importing the Design
+$ set_db init_netlist_files ../physical_design/multiplexor_netlist.v
+$ set_db init_lef_files {../ihp-sg13g2/libs.ref/sg13g2_stdcell/lef/sg13g2_tech.lef ../ihp-sg13g2/libs.ref/sg13g2_stdcell/lef/sg13g2_stdcell.lef}
+$ set_db init_power_nets VDD
+$ set_db init_ground_nets VSS
+$ set_db init_mmmc_files  multiplexor.view
+$ read_mmmc multiplexor.view
+$ read_physical -lef {../ihp-sg13g2/libs.ref/sg13g2_stdcell/lef/sg13g2_tech.lef ../ihp-sg13g2/libs.ref/sg13g2_stdcell/lef/sg13g2_stdcell.lef}
+$ read_netlist ../physical_design/multiplexor_netlist.v -top multiplexor
+$ init_design
+
+# Connect Global Nets (VDD and VSS)
+$ connect_global_net VDD -type pg_pin -pin_base_name VDD -inst_base_name *
+$ connect_global_net VSS -type pg_pin -pin_base_name VSS -inst_base_name *
+``` 
+
+### Screenshots 
+
+
+
 ### 5.2 Floorplanning the Design 
 ### 5.3 Pin Assignment 
 ### 5.4 Power Planning (Rings + Stripes)
