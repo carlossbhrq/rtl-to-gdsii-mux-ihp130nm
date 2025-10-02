@@ -55,11 +55,12 @@ $ xrun multiplexor.v multiplexor_test.v -access +rwc -gui
 
 <figure style="margin: 0 auto; display: table;">
   <img src="https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/26f5edfd141dd451acca71f2a6c68265d0e469a9/images/Functional_simulation_01.png" alt="Resultados da simulação funcional em modo batch" style="max-width: 90%; display: block;">
-  <figcaption align="center">
+  <figcaption align="center" >
     <b>Figure:</b> Simulation results in batch mode.
   </figcaption>
 </figure>
 
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 
 <figure style="margin: 0 auto; display: table;">
