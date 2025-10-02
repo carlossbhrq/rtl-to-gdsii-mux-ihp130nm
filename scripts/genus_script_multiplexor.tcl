@@ -1,10 +1,7 @@
 # genus_script_multiplexor.tcl
-set_db init_lib_search_path ../libs/
+set_db init_lib_search_path ../ihp-sg13g2/libs.ref/sg13g2_stdcell/lib/
 set_db init_hdl_search_path ../rtl/
 
-Obs.: Ajustar os paths acima. 
-
-# Use a biblioteca SLOW para síntese (worst-case timing)
 read_libs sg13g2_stdcell_slow_1p08V_125C.lib
 
 read_hdl multiplexor.v
@@ -24,7 +21,6 @@ syn_opt
 report_timing > reports/report_timing_MUX.rpt
 report_power  > reports/report_power_MUX.rpt
 report_area   > reports/report_area_MUX.rpt
-report_qor    > reports/report_qor_MUX.rpt
 
 # Outputs
 write_hdl > outputs/multiplexor_netlist.v
