@@ -52,11 +52,14 @@ $ xrun multiplexor.v multiplexor_test.v -access +rwc -gui
 ```
 
 ![image alt](https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/26f5edfd141dd451acca71f2a6c68265d0e469a9/images/Functional_simulation_01.png) 
+
 **Figure: Simulation results in batch mode.** 
 
 
+
 ![image alt](https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/26f5edfd141dd451acca71f2a6c68265d0e469a9/images/Functional_simulation_02.png) 
-**Figure: Simulation results using SimVision GUI.** 
+
+**Figure: Simulation results in Graphical Mode, using SimVision.** 
 
 
 
