@@ -383,19 +383,10 @@ $ verify_connectivity
 <figure style="margin: 0 auto; display: table;">
   <img src="" style="max-width: 90%; display: block;">
   <figcaption align="center">
-    <b>Figure:</b> Results for DRC verification.
+    <b>Figure:</b> Results for DRC and Connectivity verification.
   </figcaption>
 </figure>
 
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-
-<figure style="margin: 0 auto; display: table;">
-  <img src="" style="max-width: 90%; display: block;">
-  <figcaption align="center">
-    <b>Figure:</b> Results for Connectivity verification.
-  </figcaption>
-</figure>
 
 ### 5.11 Power Analysis
 
