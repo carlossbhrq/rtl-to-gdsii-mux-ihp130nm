@@ -308,12 +308,98 @@ $ write_db postCTSopt
 
 ### 5.8 Routing the Nets 
 
+#### Procedures 
+```bash
+# Run Detail Routing
+$ set_db route_design_with_timing_driven 1
+$ set_db route_design_with_si_driven 1
+$ set_db design_top_routing_layer Metal5
+$ set_db design_bottom_routing_layer Metal1
+$ set_db route_design_detail_end_iteration 0
+$ set_db route_design_with_timing_driven true
+$ set_db route_design_with_si_driven true
+$ route_design -global_detail
+```
 
+#### Screenshots 
+<figure style="margin: 0 auto; display: table;">
+  <img src="" style="max-width: 90%; display: block;">
+  <figcaption align="center">
+    <b>Figure:</b> Route Global Detail Statistics.
+  </figcaption>
+</figure>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<figure style="margin: 0 auto; display: table;">
+  <img src="" style="max-width: 90%; display: block;">
+  <figcaption align="center">
+    <b>Figure:</b> Post routing layout.
+  </figcaption>
+</figure>
 
 
 ### 5.9 Extraction and Timing Analysis 
+
+#### Procedures
+```bash
+# Run RC Extraction
+$ extract_rc
+
+# Export SPEF
+$ write_parasitics -spef_file multiplexor.spef
+
+# Configure OCV
+$ set_db timing_analysis_type ocv
+
+# Keep MMMC configuration for corners
+$ set_db timing_analysis_cppr both
+
+# Perform Setup and Hold Analysis
+$ time_design -post_route
+$ time_design -post_route -hold
+```
+
+#### Screenshots 
+<figure style="margin: 0 auto; display: table;">
+  <img src="" style="max-width: 90%; display: block;">
+  <figcaption align="center">
+    <b>Figure:</b> Setup and Hold views.
+  </figcaption>
+</figure>
+
+
 ### 5.10 Physical Verification 
+
+#### Procedures 
+```bash
+# Verifying Geometry and Connectivity
+$ verify_drc
+$ verify_connectivity
+```
+
+#### Screenshots 
+<figure style="margin: 0 auto; display: table;">
+  <img src="" style="max-width: 90%; display: block;">
+  <figcaption align="center">
+    <b>Figure:</b> Results for DRC verification.
+  </figcaption>
+</figure>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<figure style="margin: 0 auto; display: table;">
+  <img src="" style="max-width: 90%; display: block;">
+  <figcaption align="center">
+    <b>Figure:</b> Results for Connectivity verification.
+  </figcaption>
+</figure>
+
 ### 5.11 Power Analysis
+
+
 ### 5.12 Filler Cell Placement 
 ### 5.13 Generating a Stream File (GDSII) 
 
