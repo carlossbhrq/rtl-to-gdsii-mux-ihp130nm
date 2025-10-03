@@ -129,7 +129,7 @@ In this step, we will use the Innovus Implementation System to implement the flo
 
 ### 5.1 Importing the Design 
 
-### Procedures 
+#### Procedures 
 ```bash
 # Go to physical_design Directory
 $ cd IHP-Open-PDK/physical_design
@@ -153,17 +153,164 @@ $ connect_global_net VDD -type pg_pin -pin_base_name VDD -inst_base_name *
 $ connect_global_net VSS -type pg_pin -pin_base_name VSS -inst_base_name *
 ``` 
 
-### Screenshots 
+#### Screenshots 
 
+<figure style="margin: 0 auto; display: table;">
+  <img src="" style="max-width: 90%; display: block;">
+  <figcaption align="center">
+    <b>Figure:</b> Design Import Results.
+  </figcaption>
+</figure>
 
 
 ### 5.2 Floorplanning the Design 
+
+#### Procedures 
+```bash
+# Create Floorplan
+$ create_floorplan -core_margins_by die -site CoreSite -core_density_size 1 0.4 2.5 2.5 2.5 2.5
+```
+
+#### Screenshots 
+
+<figure style="margin: 0 auto; display: table;">
+  <img src="" style="max-width: 90%; display: block;">
+  <figcaption align="center">
+    <b>Figure:</b> The Floorplan.
+  </figcaption>
+</figure>
+
+
 ### 5.3 Pin Assignment 
+
+#### Procedures 
+```bash
+# Pin Assigment 
+$ read_io_file mux_pins.io
+```
+
+#### Screenshots 
+
+<figure style="margin: 0 auto; display: table;">
+  <img src="" style="max-width: 90%; display: block;">
+  <figcaption align="center">
+    <b>Figure:</b> Pin Placement.
+  </figcaption>
+</figure>
+
+
 ### 5.4 Power Planning (Rings + Stripes)
+
+#### Procedures 
+```bash
+# Power Planning
+$ set_db add_rings_skip_shared_inner_ring none ; set_db add_rings_avoid_short 1 ; set_db add_rings_ignore_rows 0 ; set_db add_rings_extend_over_row 0
+
+# Add Rings
+$ add_rings -type core_rings -jog_distance 0.6 -threshold 0.6 -nets {VDD VSS} -follow core -layer {bottom Metal5 top Metal5 right Metal4 left Metal4} -width 0.7 -spacing .4 -offset 0.6
+
+# Add Stripes
+$ add_stripes -block_ring_top_layer_limit Metal5 -max_same_layer_jog_length 0.44 -pad_core_ring_bottom_layer_limit Metal4 -set_to_set_distance 5 -pad_core_ring_top_layer_limit Metal5 -spacing 0.4 -merge_stripes_value 0.6 -layer Metal4 -block_ring_bottom_layer_limit Metal4 -width 0.3 -nets {VDD VSS} 
+```
+
+#### Screenshots 
+
+<figure style="margin: 0 auto; display: table;">
+  <img src="" style="max-width: 90%; display: block;">
+  <figcaption align="center">
+    <b>Figure:</b> Power Rings.
+  </figcaption>
+</figure>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<figure style="margin: 0 auto; display: table;">
+  <img src="" style="max-width: 90%; display: block;">
+  <figcaption align="center">
+    <b>Figure:</b> Power Stripes.
+  </figcaption>
+</figure>
+
+
 ### 5.5 Power Rails (Sroute)
+
+```bash
+# Create Power Rails with Special Route
+$ route_special -connect core_pin -layer_change_range { Metal1(1) Metal5(5) } -block_pin_target nearest_target -core_pin_target first_after_row_end -allow_jogging 1 -crossover_via_layer_range { Metal1(1) Metal5(5) } -nets { VDD VSS } -allow_layer_change 1 -target_via_layer_range { Metal1(1) Metal5(5) }
+```
+
+#### Screenshots 
+
+<figure style="margin: 0 auto; display: table;">
+  <img src="" style="max-width: 90%; display: block;">
+  <figcaption align="center">
+    <b>Figure:</b> Power routes have been connected to the power planned targets with relevant vias.
+  </figcaption>
+</figure>
+
+
 ### 5.6 Placement Optimization 
+
+```bash
+# Run placement optimization 
+$ place_opt_design
+
+# Save the Database
+$ write_db placeOpt 
+```
+
+#### Screenshots 
+
+<figure style="margin: 0 auto; display: table;">
+  <img src="" style="max-width: 90%; display: block;">
+  <figcaption align="center">
+    <b>Figure:</b> Timing Summary.
+  </figcaption>
+</figure>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<figure style="margin: 0 auto; display: table;">
+  <img src="" style="max-width: 90%; display: block;">
+  <figcaption align="center">
+    <b>Figure:</b> Standard cell placements.
+  </figcaption>
+</figure>
+
+
 ### 5.7 Clock Tree Synthesis 
+
+```bash
+# Create a Clock Tree Spec and run CTS
+# Option 1: Modern flow (preferred)
+$ ccopt_design
+
+# Option 2: Legacy flow (if modern fails)  
+$ create_clock_tree_spec
+$ create_clock_tree
+$ clock_opt_design
+
+# Save the database
+$ write_db postCTSopt
+```
+
+#### Screenshots 
+
+<figure style="margin: 0 auto; display: table;">
+  <img src="" style="max-width: 90%; display: block;">
+  <figcaption align="center">
+    <b>Figure:</b> Timing violations.
+  </figcaption>
+</figure>
+
+
 ### 5.8 Routing the Nets 
+
+
+
+
 ### 5.9 Extraction and Timing Analysis 
 ### 5.10 Physical Verification 
 ### 5.11 Power Analysis
