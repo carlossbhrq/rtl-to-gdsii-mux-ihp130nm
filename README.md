@@ -375,8 +375,8 @@ $ time_design -post_route -hold
 #### Procedures 
 ```bash
 # Verifying Geometry and Connectivity
-$ verify_drc
-$ verify_connectivity
+$ check_drc
+$ check_connectivity
 ```
 
 #### Screenshots 
