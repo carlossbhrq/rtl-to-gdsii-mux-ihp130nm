@@ -389,8 +389,44 @@ $ verify_connectivity
 
 
 ### 5.11 Power Analysis
+#### Procedures
+```bash
+# Running Power Analysis
+$ set_db power_analysis_mode "averaged"
+$ set_db power_enable_analysis true
+$ report_power -summary
+
+# Rail Analysis
+$ verify_pg_nets
+```
+
+#### Screenshots
+<figure style="margin: 0 auto; display: table;">
+  <img src="" style="max-width: 90%; display: block;">
+  <figcaption align="center">
+    <b>Figure:</b> Power and Rail Analysis Results.
+  </figcaption>
+</figure>
 
 
 ### 5.12 Filler Cell Placement 
+
+#### Procedures
+Mesmo do GPDK. 
+
+#### Screenshots
+<figure style="margin: 0 auto; display: table;">
+  <img src="" style="max-width: 90%; display: block;">
+  <figcaption align="center">
+    <b>Figure:</b> Power and Rail Analysis Results.
+  </figcaption>
+</figure>
+
+
 ### 5.13 Generating a Stream File (GDSII) 
+#### Procedures 
+```bash
+# Generating GDS file
+$ write_stream -lib_name DesignLib -format gds -output_file multiplexor.gds
+```
 
