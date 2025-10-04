@@ -3,12 +3,14 @@
 This repository documents the complete RTL-to-GDSII flow implementation for a multiplexer (MUX) circuit, utilizing the Cadence tool suite and the IHP PDK 130 nm technology.
 
 
+
 ## 1. Design Especification
 - Multiplexor width is parameterized with the default value of 5;
 - If **sel** is **1'b0**, input **in0** is passaed to the output **mux_out**;
 - If **sel** is **1'b1**, input **in1** is passed to the output **mux_out**.
 
 ![image alt](https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/a29587ea9e168afc3ee6293585b79b7d9e7e3058/images/MUX.png)
+
 
 
 ## 2. RTL Coding 
@@ -34,6 +36,7 @@ module multiplexor #(
     end 
 endmodule
 ```
+
 
 
 ## 3. Functional Simulation 
@@ -69,6 +72,7 @@ $ xrun multiplexor.v multiplexor_test.v -access +rwc -gui
     <b>Figure:</b> Simulation results in Graphical Mode, using SimVision.
   </figcaption>
 </figure>
+
 
 
 ## 4. Logic Synthesis 
@@ -124,8 +128,11 @@ $ exit
 </figure>
 
 
+
 ## 5. Digital Implementation 
 In this step, we will use the Innovus Implementation System to implement the floorplanning, placement, routing and others for this design. 
+
+
 
 ### 5.1 Importing the Design 
 
@@ -161,6 +168,7 @@ $ connect_global_net VSS -type pg_pin -pin_base_name VSS -inst_base_name *
     <b>Figure:</b> Design Import Results.
   </figcaption>
 </figure>
+
 
 
 ### 5.2 Floorplanning the Design 
@@ -199,6 +207,7 @@ $ read_io_file mux_pins.io
 </figure>
 
 
+
 ### 5.4 Power Planning (Rings + Stripes)
 
 #### Procedures 
@@ -233,7 +242,10 @@ $ add_stripes -block_ring_top_layer_limit Metal5 -max_same_layer_jog_length 0.44
 </figure>
 
 
+
 ### 5.5 Power Rails (Sroute)
+
+#### Procedures
 
 ```bash
 # Create Power Rails with Special Route
@@ -250,7 +262,10 @@ $ route_special -connect core_pin -layer_change_range { Metal1(1) Metal5(5) } -b
 </figure>
 
 
+
 ### 5.6 Placement Optimization 
+
+#### Procedures
 
 ```bash
 # Run placement optimization 
@@ -280,6 +295,7 @@ $ write_db placeOpt
 </figure>
 
 
+
 ### 5.7 Clock Tree Synthesis 
 
 Clock Tree Synthesis (CTS) is the process of distributing the clock signal to all sequential elements (flip-flops, registers, latches) on the chip, ensuring temporal synchronization and skew balancing.
@@ -303,6 +319,8 @@ $ clock_opt_design
 # Save the database
 $ write_db postCTSopt
 ```
+
+
 
 ### 5.8 Routing the Nets 
 
@@ -338,6 +356,7 @@ $ route_design -global_detail
 </figure>
 
 
+
 ### 5.9 Extraction and Timing Analysis 
 
 #### Procedures
@@ -368,6 +387,7 @@ $ time_design -post_route -hold
 </figure>
 
 
+
 ### 5.10 Physical Verification 
 
 #### Procedures 
@@ -395,7 +415,10 @@ $ check_connectivity
   </figcaption>
 </figure>
 
+
+
 ### 5.11 Power Analysis
+
 #### Procedures
 ```bash
 # Running Power Analysis
@@ -418,6 +441,7 @@ $ report_power
 </figure>
 
 
+
 ### 5.12 Filler Cell Placement 
 
 #### Procedures
@@ -434,6 +458,7 @@ $ add_fillers -base_cells {sg13g2_fill_8 sg13g2_fill_4 sg13g2_fill_2 sg13g2_fill
     <b>Figure:</b> Post Placement of Filler Cells.
   </figcaption>
 </figure>
+
 
 
 ### 5.13 Generating a Stream File (GDSII)
