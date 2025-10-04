@@ -168,7 +168,7 @@ $ connect_global_net VSS -type pg_pin -pin_base_name VSS -inst_base_name *
 #### Procedures 
 ```bash
 # Create Floorplan
-$ create_floorplan -core_margins_by die -site CoreSite -core_density_size 1 0.4 2.5 2.5 2.5 2.5
+$ create_floorplan -core_margins_by die -site CoreSite -core_density_size 1 0.4 3.5 3.5 3.5 3.5
 ```
 
 #### Screenshots 
