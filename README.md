@@ -156,7 +156,7 @@ $ connect_global_net VSS -type pg_pin -pin_base_name VSS -inst_base_name *
 #### Screenshots 
 
 <figure style="margin: 0 auto; display: table;">
-  <img src="" style="max-width: 90%; display: block;">
+  <img src="https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/6ef4b65cb8889c737dd33f1861fbf3377bd26999/images/Importing_the_Design.png" style="max-width: 90%; display: block;">
   <figcaption align="center">
     <b>Figure:</b> Design Import Results.
   </figcaption>
@@ -174,7 +174,7 @@ $ create_floorplan -core_margins_by die -site CoreSite -core_density_size 1 0.4 
 #### Screenshots 
 
 <figure style="margin: 0 auto; display: table;">
-  <img src="" style="max-width: 90%; display: block;">
+  <img src="https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/6ef4b65cb8889c737dd33f1861fbf3377bd26999/images/Floorplanning_the_Design.png" style="max-width: 90%; display: block;">
   <figcaption align="center">
     <b>Figure:</b> The Floorplan.
   </figcaption>
@@ -192,7 +192,7 @@ $ read_io_file mux_pins.io
 #### Screenshots 
 
 <figure style="margin: 0 auto; display: table;">
-  <img src="" style="max-width: 90%; display: block;">
+  <img src="https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/6ef4b65cb8889c737dd33f1861fbf3377bd26999/images/Pin_Assignment.png" style="max-width: 90%; display: block;">
   <figcaption align="center">
     <b>Figure:</b> Pin Placement.
   </figcaption>
@@ -216,7 +216,7 @@ $ add_stripes -block_ring_top_layer_limit Metal5 -max_same_layer_jog_length 0.44
 #### Screenshots 
 
 <figure style="margin: 0 auto; display: table;">
-  <img src="" style="max-width: 90%; display: block;">
+  <img src="https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/6ef4b65cb8889c737dd33f1861fbf3377bd26999/images/Power_Planning_01.png" style="max-width: 90%; display: block;">
   <figcaption align="center">
     <b>Figure:</b> Power Rings.
   </figcaption>
@@ -226,7 +226,7 @@ $ add_stripes -block_ring_top_layer_limit Metal5 -max_same_layer_jog_length 0.44
 <p>&nbsp;</p>
 
 <figure style="margin: 0 auto; display: table;">
-  <img src="" style="max-width: 90%; display: block;">
+  <img src="https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/6ef4b65cb8889c737dd33f1861fbf3377bd26999/images/Power_Planning_02.png" style="max-width: 90%; display: block;">
   <figcaption align="center">
     <b>Figure:</b> Power Stripes.
   </figcaption>
@@ -243,7 +243,7 @@ $ route_special -connect core_pin -layer_change_range { Metal1(1) Metal5(5) } -b
 #### Screenshots 
 
 <figure style="margin: 0 auto; display: table;">
-  <img src="" style="max-width: 90%; display: block;">
+  <img src="https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/6ef4b65cb8889c737dd33f1861fbf3377bd26999/images/Power_Rails.png" style="max-width: 90%; display: block;">
   <figcaption align="center">
     <b>Figure:</b> Power routes have been connected to the power planned targets with relevant vias.
   </figcaption>
@@ -263,7 +263,7 @@ $ write_db placeOpt
 #### Screenshots 
 
 <figure style="margin: 0 auto; display: table;">
-  <img src="" style="max-width: 90%; display: block;">
+  <img src="https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/6ef4b65cb8889c737dd33f1861fbf3377bd26999/images/Placement_Optimization_01.png" style="max-width: 90%; display: block;">
   <figcaption align="center">
     <b>Figure:</b> Timing Summary.
   </figcaption>
@@ -273,7 +273,7 @@ $ write_db placeOpt
 <p>&nbsp;</p>
 
 <figure style="margin: 0 auto; display: table;">
-  <img src="" style="max-width: 90%; display: block;">
+  <img src="https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/6ef4b65cb8889c737dd33f1861fbf3377bd26999/images/Placement_Optimization_02.png" style="max-width: 90%; display: block;">
   <figcaption align="center">
     <b>Figure:</b> Standard cell placements.
   </figcaption>
@@ -321,7 +321,7 @@ $ route_design -global_detail
 
 #### Screenshots 
 <figure style="margin: 0 auto; display: table;">
-  <img src="" style="max-width: 90%; display: block;">
+  <img src="https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/6ef4b65cb8889c737dd33f1861fbf3377bd26999/images/Routing_the_Nets_01.png" style="max-width: 90%; display: block;">
   <figcaption align="center">
     <b>Figure:</b> Route Global Detail Statistics.
   </figcaption>
@@ -331,7 +331,7 @@ $ route_design -global_detail
 <p>&nbsp;</p>
 
 <figure style="margin: 0 auto; display: table;">
-  <img src="" style="max-width: 90%; display: block;">
+  <img src="https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/6ef4b65cb8889c737dd33f1861fbf3377bd26999/images/Routing_the_Nets_02.png" style="max-width: 90%; display: block;">
   <figcaption align="center">
     <b>Figure:</b> Post routing layout.
   </figcaption>
@@ -361,7 +361,7 @@ $ time_design -post_route -hold
 
 #### Screenshots 
 <figure style="margin: 0 auto; display: table;">
-  <img src="" style="max-width: 90%; display: block;">
+  <img src="https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/6ef4b65cb8889c737dd33f1861fbf3377bd26999/images/Extraction_and_Timing_Analysis.png" style="max-width: 90%; display: block;">
   <figcaption align="center">
     <b>Figure:</b> Setup and Hold views.
   </figcaption>
@@ -379,12 +379,21 @@ $ check_connectivity
 
 #### Screenshots 
 <figure style="margin: 0 auto; display: table;">
-  <img src="" style="max-width: 90%; display: block;">
+  <img src="https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/6ef4b65cb8889c737dd33f1861fbf3377bd26999/images/Physical_Verification%20_01.png" style="max-width: 90%; display: block;">
   <figcaption align="center">
-    <b>Figure:</b> Results for DRC and Connectivity verification.
+    <b>Figure:</b> Results for DRC  verification.
   </figcaption>
 </figure>
 
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<figure style="margin: 0 auto; display: table;">
+  <img src="https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/6ef4b65cb8889c737dd33f1861fbf3377bd26999/images/Physical_Verification%20_02.png" style="max-width: 90%; display: block;">
+  <figcaption align="center">
+    <b>Figure:</b> Results for Connectivity verification.
+  </figcaption>
+</figure>
 
 ### 5.11 Power Analysis
 #### Procedures
@@ -395,9 +404,16 @@ $ report_power
 
 #### Screenshots
 <figure style="margin: 0 auto; display: table;">
-  <img src="" style="max-width: 90%; display: block;">
+  <img src="https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/6ef4b65cb8889c737dd33f1861fbf3377bd26999/images/Power_Analysis_01.png" style="max-width: 90%; display: block;">
   <figcaption align="center">
-    <b>Figure:</b> Power and Rail Analysis Results.
+    <b>Figure:</b> Power Analysis Results.
+  </figcaption>
+</figure>
+
+<figure style="margin: 0 auto; display: table;">
+  <img src="https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/6ef4b65cb8889c737dd33f1861fbf3377bd26999/images/Power_Analysis_02.png" style="max-width: 90%; display: block;">
+  <figcaption align="center">
+    <b>Figure:</b> Rail Analysis Results.
   </figcaption>
 </figure>
 
@@ -408,25 +424,26 @@ $ report_power
 ```bash
 # To add fillers cell
 $ add_fillers -base_cells {sg13g2_fill_8 sg13g2_fill_4 sg13g2_fill_2 sg13g2_fill_1 sg13g2_decap_8 sg13g2_decap_4} -prefix FILLER
-``
+```
 
 #### Screenshots
+
 <figure style="margin: 0 auto; display: table;">
-  <img src="" style="max-width: 90%; display: block;">
+  <img src="https://github.com/carlossbhrq/rtl-to-gdsii-mux-ihp130nm/blob/6ef4b65cb8889c737dd33f1861fbf3377bd26999/images/Filler_Cell_Placement.png" style="max-width: 90%; display: block;">
   <figcaption align="center">
     <b>Figure:</b> Post Placement of Filler Cells.
   </figcaption>
 </figure>
 
 
-### 5.13 Generating a Stream File (GDSII) 
+### 5.13 Generating a Stream File (GDSII)
+
 #### Procedures 
 ```bash
 # Generating GDS file
 $ write_stream multiplexor.gds -lib_name DesignLib -format stream
 # Close the Innovus
 $ exit 
-
 ```
 
 
