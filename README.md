@@ -282,6 +282,14 @@ $ write_db placeOpt
 
 ### 5.7 Clock Tree Synthesis 
 
+Clock Tree Synthesis (CTS) is the process of distributing the clock signal to all sequential elements (flip-flops, registers, latches) on the chip, ensuring temporal synchronization and skew balancing.
+
+Since this design implements a purely combinational multiplexer, it relies on the absence of sequential elements in the synthesized netlist. Therefore, it was decided to skip the CTS step and proceed directly to routing. 
+
+
+For sequential circuits (with flip-flops, registers or clock elements), the following steps must be followed:
+
+#### Procedures
 ```bash
 # Create a Clock Tree Spec and run CTS
 # Option 1: Modern flow (preferred)
@@ -295,16 +303,6 @@ $ clock_opt_design
 # Save the database
 $ write_db postCTSopt
 ```
-
-#### Screenshots 
-
-<figure style="margin: 0 auto; display: table;">
-  <img src="" style="max-width: 90%; display: block;">
-  <figcaption align="center">
-    <b>Figure:</b> Timing violations.
-  </figcaption>
-</figure>
-
 
 ### 5.8 Routing the Nets 
 
@@ -392,12 +390,7 @@ $ check_connectivity
 #### Procedures
 ```bash
 # Running Power Analysis
-$ set_db power_analysis_mode "averaged"
-$ set_db power_enable_analysis true
-$ report_power -summary
-
-# Rail Analysis
-$ verify_pg_nets
+$ report_power
 ```
 
 #### Screenshots
@@ -412,13 +405,16 @@ $ verify_pg_nets
 ### 5.12 Filler Cell Placement 
 
 #### Procedures
-Mesmo do GPDK. 
+```bash
+# To add fillers cell
+$ add_fillers -base_cells {sg13g2_fill_8 sg13g2_fill_4 sg13g2_fill_2 sg13g2_fill_1 sg13g2_decap_8 sg13g2_decap_4} -prefix FILLER
+``
 
 #### Screenshots
 <figure style="margin: 0 auto; display: table;">
   <img src="" style="max-width: 90%; display: block;">
   <figcaption align="center">
-    <b>Figure:</b> Power and Rail Analysis Results.
+    <b>Figure:</b> Post Placement of Filler Cells.
   </figcaption>
 </figure>
 
@@ -427,6 +423,10 @@ Mesmo do GPDK.
 #### Procedures 
 ```bash
 # Generating GDS file
-$ write_stream -lib_name DesignLib -format gds -output_file multiplexor.gds
+$ write_stream multiplexor.gds -lib_name DesignLib -format stream
+# Close the Innovus
+$ exit 
+
 ```
+
 
